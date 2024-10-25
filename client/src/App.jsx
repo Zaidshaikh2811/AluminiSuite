@@ -1,26 +1,18 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/landingPage";
 import "./App.css";
-import { Input } from "./components/ui/input";
-import { Button } from "./components/ui/button";
-import { Calendar } from "./components/ui/calendar";
+import Login from "./pages/Login";
 
 function App() {
-  const [date, setDate] = useState(Date())
-
   return (
-    <>
-      <Input type="email" placeholder="Email" />
-      <Button>Click Me</Button>
-      <div className="flex">
-      <Calendar
-        mode="single"
-        selected={date}
-        onSelect={setDate}
-        className="rounded-md border"
-      />
+    <Router>
+      <div className="">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </div>
-       
-    </>
+    </Router>
   );
 }
 
